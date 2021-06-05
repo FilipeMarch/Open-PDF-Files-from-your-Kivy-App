@@ -14,3 +14,6 @@ Follow these instructions:
 6) Replace **AndroidManifest.tmpl.xml** by *AndroidManifest.tmpl.xml* from this repository
 7) Compile the app again: `buildozer -v android debug deploy run logcat`
 8) Done!
+
+## ATTENTION ## This is working only for Android 10 or lower. 
+Soon I will update this repo so this will also work for Android 11 or higher
