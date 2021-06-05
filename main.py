@@ -56,7 +56,7 @@ class MyApp(App):
 
         else:
             import webbrowser, os
-            webbrowser.open(f'file://{os.getcwd()}/{pdf_file_path}')
+            webbrowser.open(f'file://{os.getcwd()}/{pdf_file_name}')
     
     def start_intent(self, currentActivity, intent):
         currentActivity.startActivity(intent)
