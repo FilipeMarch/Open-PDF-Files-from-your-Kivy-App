@@ -11,5 +11,6 @@ Follow these instructions:
 3) Once the compilation ends, enter on the folder `.buildozer/android/platform/python-for-android/pythonforandroid/bootstraps/sdl2/build/src/main/res`
 4) Paste `xml` folder from this repository on it
 5) Enter on folder `.buildozer/android/platform/python-for-android/pythonforandroid/bootstraps/sdl2/build/templates`
-6) Replace **AndroidManifest.tmpl.xml** by the same file from this repository
+6) Replace **AndroidManifest.tmpl.xml** by *AndroidManifest.tmpl.xml* from this repository
 7) Compile the app again: `buildozer -v android debug deploy run logcat`
+8) Done!
