@@ -35,7 +35,7 @@ class MyApp(App):
             downloads_folder = primary_external_storage_path() + '/Download'
             pdf_file_path = f'{downloads_folder}/{pdf_file_name}'
 
-            # Copying File to Download folder, this will work only on Android 10 or lower
+            # Copying file to Download folder, this will work only on Android 10 or lower
             copyfile(pdf_file_name, pdf_file_path)
 
             File = autoclass('java.io.File') 
