@@ -1,0 +1,4 @@
+to work on androids > 10 it is necessary to execute
+the permission code that I attached in the permission file,
+I made a change in your main.py as well because the Context
+is no longer used.
