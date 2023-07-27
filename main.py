@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.utils import platform
 from threading import Thread
 from shutil import copyfile
+import permission
 
 KV = """
 BoxLayout:
@@ -22,6 +23,7 @@ BoxLayout:
 
 class MyApp(App):
     def build(self):
+        permission.Permission().show_permission()
         return Builder.load_string(KV)
 
     def open_pdf_file(self):
@@ -31,6 +33,8 @@ class MyApp(App):
             from android.storage import primary_external_storage_path
             from jnius import cast
             from jnius import autoclass
+            from android import mActivity
+            activity = mActivity.getApplicationContext()
             
             downloads_folder = primary_external_storage_path() + '/Download'
             pdf_file_path = f'{downloads_folder}/{pdf_file_name}'
@@ -41,7 +45,7 @@ class MyApp(App):
             File = autoclass('java.io.File') 
             PythonActivity = autoclass('org.kivy.android.PythonActivity')
             currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
-            Context = autoclass("android.content.Context")
+            # Context = autoclass("android.content.Context")
 
             Intent = autoclass('android.content.Intent')
             intent = Intent(Intent.ACTION_VIEW)
@@ -49,7 +53,7 @@ class MyApp(App):
             intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
 
             FileProvider = autoclass('androidx.core.content.FileProvider')
-            uri = FileProvider.getUriForFile(Context.getApplicationContext(), Context.getApplicationContext().getPackageName() + '.fileprovider', File(pdf_file_path))
+            uri = FileProvider.getUriForFile(activity, activity.getPackageName() + '.fileprovider', File(pdf_file_path))
             intent.setData(uri)
 
             Thread(target = lambda: self.start_intent(currentActivity, intent)).start()
