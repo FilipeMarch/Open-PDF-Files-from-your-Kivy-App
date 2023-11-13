@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "open-pdf-files-from-your-kivy-app"
+version = "0.1.0"
+description = ""
+authors = ["Filipe Marchesini <filipe.marchesini@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+buildozer = "^1.5.0"
+cython = "^0.29.34"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
