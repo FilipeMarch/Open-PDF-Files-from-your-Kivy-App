@@ -111,5 +111,16 @@ class MyApp(App):
     def start_intent(self, currentActivity, intent):
         currentActivity.startActivity(intent)
 
+    def on_pause(self):
+        return True
+
+    def on_resume(self):
+        Clock.schedule_once(self.update_viewport)
+        return True
+
+    @mainthread
+    def update_viewport(self, *args):
+        Window.update_viewport()
+
 
 MyApp().run()
